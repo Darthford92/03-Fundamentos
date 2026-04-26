@@ -10,6 +10,15 @@
 -------------------------------------------------------------------------- */
 function signoNumero(numero) {
   // TU CÓDIGO AQUÍ 👇
+  if (numero > 0){
+    return "positivo"
+  }
+  else if (numero < 0) {
+    return "negativo"
+  }
+  else {
+    return "cero"
+  }
 }
 
 /* --------------------------------------------------------------------------
@@ -20,6 +29,11 @@ function signoNumero(numero) {
 -------------------------------------------------------------------------- */
 function esBisiesto(anio) {
   // TU CÓDIGO AQUÍ 👇
+  if ((anio % 4 == 0 && anio % 100 != 0) || anio % 400 == 0) {
+    return true;
+  } else {
+    return false;
+  }
 }
 
 /* --------------------------------------------------------------------------
@@ -29,6 +43,14 @@ function esBisiesto(anio) {
 -------------------------------------------------------------------------- */
 function tipoDia(dia) {
   // TU CÓDIGO AQUÍ 👇
+  switch (dia){
+    case "sábado":
+    case "domingo":
+      return "fin de semana";
+
+    default:
+      return "laborable";
+  }
 }
 
 /* --------------------------------------------------------------------------
@@ -40,6 +62,13 @@ function tipoDia(dia) {
 -------------------------------------------------------------------------- */
 function precioEntrada(edad) {
   // TU CÓDIGO AQUÍ 👇
+  if (edad >= 65){
+    return 700
+  } else if (edad < 65 && edad >= 12){
+    return 1200
+  } else {
+    return 500
+  }
 }
 
 /* --------------------------------------------------------------------------
@@ -49,7 +78,8 @@ function precioEntrada(edad) {
 -------------------------------------------------------------------------- */
 function tieneContenido(texto) {
   // TU CÓDIGO AQUÍ 👇
-}
+  return texto.length > 0 ? "Tiene contenido" : "Vacío";
+  }
 
 /* --------------------------------------------------------------------------
    KATA 16 — ¿Puede Conducir?
@@ -60,6 +90,14 @@ function tieneContenido(texto) {
 -------------------------------------------------------------------------- */
 function puedeConducir(edad, aproboTeorico) {
   // TU CÓDIGO AQUÍ 👇
+  if (edad < 18){
+    return "Menor de edad"
+  } else if (!aproboTeorico){
+    return "Sin teórico aprobado"
+  } else {
+    return "Puede sacar el registro"
+  }
+
 }
 
 /* --------------------------------------------------------------------------
@@ -70,6 +108,31 @@ function puedeConducir(edad, aproboTeorico) {
 -------------------------------------------------------------------------- */
 function numeroDia(numero) {
   // TU CÓDIGO AQUÍ 👇
+  switch (numero) {
+    case 1:
+      return "lunes";
+      break;
+    case 2:
+      return "martes";
+      break;
+    case 3:
+      return "miércoles";
+      break;
+    case 4:
+      return "jueves";
+      break;
+    case 5:
+      return "viernes";
+      break;
+    case 6:
+      return "sábado";
+      break;
+    case 7:
+      return "domingo";
+      break;
+    default:
+      return "Día inválido";
+  }
 }
 
 /* --------------------------------------------------------------------------
@@ -82,6 +145,17 @@ function numeroDia(numero) {
 -------------------------------------------------------------------------- */
 function clasificarIMC(peso, altura) {
   // TU CÓDIGO AQUÍ 👇
+  let IMC = peso/(altura*altura);
+
+  if (IMC < 18.5){
+    return "Bajo peso";
+  } else if (IMC < 25){
+      return "Normal"
+    } else if (IMC < 30){
+      return "Sobrepeso"
+    } else {
+      return "Obesidad"
+    }
 }
 
 /* --------------------------------------------------------------------------
@@ -91,8 +165,13 @@ function clasificarIMC(peso, altura) {
 -------------------------------------------------------------------------- */
 function valorPorDefecto(nombreUsuario) {
   // TU CÓDIGO AQUÍ 👇
+  // la negación de nombre de usuario retorna un falso
+  if ( !nombreUsuario ){
+    return "Anónimo";
+  } else {
+    return nombreUsuario;
+  }
 }
-
 /* --------------------------------------------------------------------------
    KATA 20 — Sistema de Notas
    Dado una nota numérica, retorná la calificación:
@@ -103,6 +182,15 @@ function valorPorDefecto(nombreUsuario) {
 -------------------------------------------------------------------------- */
 function calificarNota(nota) {
   // TU CÓDIGO AQUÍ 👇
+  if (nota < 60) {
+    return "Reprobado";
+  } else if (nota < 75) {
+    return "Aprobado";
+  } else if (nota < 90) {
+    return "Notable";
+  } else {
+    return "Sobresaliente";
+  }
 }
 
 // 🚨 ¡NO TOCAR ESTA LÍNEA!
