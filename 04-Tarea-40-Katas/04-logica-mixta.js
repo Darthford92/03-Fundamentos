@@ -19,6 +19,21 @@
 -------------------------------------------------------------------------- */
 function fizzBuzzExtendido(n) {
   // TU CÓDIGO AQUÍ 👇
+
+  let fizzBuzzExtendido = "";
+
+    if (n % 3 === 0){
+      fizzBuzzExtendido += "Fizz"
+    } 
+
+    if (n %  5 === 0) {
+        fizzBuzzExtendido += "Buzz"
+    } 
+
+    if (n %  7 === 0) {
+        fizzBuzzExtendido += "Bazz"
+    }
+    return fizzBuzzExtendido || String(n);
 }
 
 /* --------------------------------------------------------------------------
@@ -29,6 +44,19 @@ function fizzBuzzExtendido(n) {
 -------------------------------------------------------------------------- */
 function calcularTotal(precios) {
   // TU CÓDIGO AQUÍ 👇
+
+  let sumatoria = 0;
+
+  for (let i = 0; i < precios.length; i++){
+    sumatoria += precios [i] ;
+  }
+
+  if (sumatoria > 5000){
+      sumatoria = sumatoria*0.85;
+      return sumatoria;
+  } else {
+    return sumatoria;
+  }
 }
 
 /* --------------------------------------------------------------------------
@@ -39,6 +67,20 @@ function calcularTotal(precios) {
 -------------------------------------------------------------------------- */
 function contarParesEImpares(limite) {
   // TU CÓDIGO AQUÍ 👇
+  let pares = 0;
+  let impares = 0;
+
+  for (let i = 1; i <= limite; i++){
+    if (i % 2 === 0){
+      pares += 1;
+    } else {
+      impares += 1;
+    }
+  }
+  return {
+    pares: pares,
+    impares: impares
+  };
 }
 
 /* --------------------------------------------------------------------------
@@ -49,6 +91,18 @@ function contarParesEImpares(limite) {
 -------------------------------------------------------------------------- */
 function palabrasEnMayusculas(oracion) {
   // TU CÓDIGO AQUÍ 👇
+  
+  //Primero separo el string mediante split
+  let oracionModificada = oracion.split(" ");
+  // ahora dentro de oraciónModificada hay un array de cada una de las palabras
+  // "hola mundo" (se vuelve) -> ["hola", "mundo"]
+
+  //Ahora agarramos oracion modificada y con map lo recorremos y en cada parte del array
+  // convertimos lo que haya en mayusculas
+  let arrayFinal = oracionModificada.map(p => p.toUpperCase());
+  //retorno oración modificada
+  return arrayFinal;
+
 }
 
 /* --------------------------------------------------------------------------
@@ -60,6 +114,31 @@ function palabrasEnMayusculas(oracion) {
 -------------------------------------------------------------------------- */
 function clasificarNumero(numero) {
   // TU CÓDIGO AQUÍ 👇
+
+  let esPar;
+  let mayorQueCinco;
+
+  if (numero % 2 === 0){
+    esPar = true;
+    if (numero > 5){
+      mayorQueCinco = true;
+    } else {
+      mayorQueCinco = false;
+    }
+  } else {
+    esPar = false;
+    if (numero > 5){
+      mayorQueCinco = true;
+    } else {
+      mayorQueCinco = false;
+    }
+  }
+
+  return {
+    esPar: esPar,
+    mayorQueCinco: mayorQueCinco,
+  }
+
 }
 
 /* --------------------------------------------------------------------------
@@ -70,6 +149,21 @@ function clasificarNumero(numero) {
 -------------------------------------------------------------------------- */
 function divisiblesPor3NoNueve(limite) {
   // TU CÓDIGO AQUÍ 👇
+  // creo un nuevo array dónde se van a guardar los números hasta el límite
+  // fuera del for para que no se reinicie
+  let nuevoArray = [];
+
+  //con un for recorro los números desde el 0 al límite y los pusheo
+  // en el nuevo array
+  for (let i = 1 ; i <= limite ; i++) {
+    nuevoArray.push(i);
+  }
+
+  //una vez tengo todos los números en el nuevo array los filtro en un nuevo array
+  let divisiblesPor3NoNueve = nuevoArray.filter(n => n % 3 === 0 && n % 9 !== 0)
+  //luego retorno ese nuevo array
+  return divisiblesPor3NoNueve;
+
 }
 
 /* --------------------------------------------------------------------------
@@ -81,6 +175,18 @@ function divisiblesPor3NoNueve(limite) {
 -------------------------------------------------------------------------- */
 function convertirTemperatura(celsius) {
   // TU CÓDIGO AQUÍ 👇
+
+  // creamos dos variables y directamente le asignamos el valor de fahrenheit y celcius con sus
+  // respectivas cuentas.
+  //a Fahrenheit debemos aplicarle .toFixed(2) para que limite los decimales a 2 pero
+  // eso devuelve un string, así que hay que agregar antes el Number para volverlo número.
+  let fahrenheit = Number((celsius*9/5 +32).toFixed(2));
+  let kelvin = celsius + 273.15
+
+  return {
+    fahrenheit: fahrenheit,
+    kelvin: kelvin,
+  }
 }
 
 /* --------------------------------------------------------------------------
@@ -91,6 +197,29 @@ function convertirTemperatura(celsius) {
 -------------------------------------------------------------------------- */
 function contarTiradas(tiradas) {
   // TU CÓDIGO AQUÍ 👇
+
+  // creo un objeto llamado tiradasrecurrentes que está vacio
+  let tiradasRecurrentes = {};
+
+  //lo recorro con un for para crear las llaves (keys) que van a contener luego los números
+  //ya que la consigna me dice que solo va a haber números del 1 al 6 limitamnos el for
+  //a esos parametros
+  for (let i = 1; i <= 6; i++){
+    //entonces por cada posición del array se creará una llave (key) en el objeto
+    //y cada una tendrá un valor de 0
+    tiradasRecurrentes[i]=0
+  }  
+
+  //una vez esté el objeto con las llaves (keys), debo recorrer el array de nuevo pero esta 
+  // vez completo (hasta ser menor al array.lenght o se nos pasa de scope)
+  for (let i = 0; i < tiradas.length; i++){
+    // asignamos en una nueva variable el valor que hay en la posición del indice que recorre tiradas
+    let valorDado = tiradas[i];
+    //luego en tiradasRecurrentes usamos esa variable como posición y directamente le sumamos 1 punto
+    //al número que allí se encuentre.
+    tiradasRecurrentes[valorDado] += 1;
+  }
+   return tiradasRecurrentes;
 }
 
 /* --------------------------------------------------------------------------
@@ -101,6 +230,20 @@ function contarTiradas(tiradas) {
 -------------------------------------------------------------------------- */
 function obtenerDivisores(numero) {
   // TU CÓDIGO AQUÍ 👇
+
+  //Iniciamos con la creación d eun array vacio
+  let divisores = [];
+
+  //con un for recorremos el array desde 1 hasta que llegamos al número que se le pasa a la función
+  for (let i = 1; i <= numero; i++){
+    //si el numero, dividido por la posición en la que está el for da un resto de 0
+    if (numero % i === 0){
+      //entonces pusheo a divisores la posición (que es el número que puede dividir al que llega a la funcion)
+      divisores.push(i);
+    }
+  }
+return divisores;
+
 }
 
 /* --------------------------------------------------------------------------
@@ -114,7 +257,25 @@ function obtenerDivisores(numero) {
 -------------------------------------------------------------------------- */
 function adivinarNumero(secreto, intentos) {
   // TU CÓDIGO AQUÍ 👇
+
+  let todosLosIntentos = [];
+
+  for (let i = 0; i < intentos.length ; i++){
+    if (secreto === intentos[i]) {
+      todosLosIntentos.push("¡Correcto!")
+    } else if (secreto < intentos[i]){
+      todosLosIntentos.push("Demasiado alto")
+    } else {
+      todosLosIntentos.push("Demasiado bajo")
+    }
+  }
+
+  return todosLosIntentos;
 }
+
+
+
+
 
 // 🚨 ¡NO TOCAR ESTA LÍNEA!
 module.exports = {
